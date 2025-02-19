@@ -8,5 +8,3 @@ The main purpose of given assignment is to classify skin lessions. In order to d
 
 
 
-
-
