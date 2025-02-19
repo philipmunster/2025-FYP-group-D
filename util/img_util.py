@@ -1,5 +1,5 @@
 import random
-
+import os 
 import cv2
 
 
@@ -31,7 +31,6 @@ def saveImageFile(img_rgb, file_path):
         print(f"Error saving the image: {e}")
         return False
 
-
 class ImageDataLoader:
     def __init__(self, directory, shuffle=False, transform=None):
         self.directory = directory
@@ -39,7 +38,7 @@ class ImageDataLoader:
         self.transform = transform
 
         # get a sorted list of all files in the directory
-        # fill in with your own code below
+        self.file_list = [f for f in os.listdir(directory) if f.endswith(('.jpg', '.png', '.jpeg'))]
 
         if not self.file_list:
             raise ValueError("No image files found in the directory.")
@@ -56,4 +55,25 @@ class ImageDataLoader:
 
     def __iter__(self):
         # fill in with your own code below
-        pass
+        for file_name in self.file_list:
+            file_path = os.path.join(self.directory, file_name)
+
+            # read the image
+            img_rgb, img_gray = readImageFile(file_path)
+
+            # apply transformation 
+            if self.transform:
+                img_rgb = self.transform(img_rgb)
+                img_gray = self.transform(img_gray)
+
+            yield img_rgb, img_gray, file_name  
+
+
+
+def simple_transform(img):
+    return cv2.resize(img, (224, 224))  
+
+image_loader = ImageDataLoader(directory="data", shuffle=True, transform=simple_transform)
+
+for img_rgb, img_gray, filename in image_loader:
+    print(f"Loaded image: {filename}, Shape: {img_rgb.shape}")
