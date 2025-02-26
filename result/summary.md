@@ -1,13 +1,13 @@
 # Projects in Data Science (2025)
 
+## Background of the problem 
 The main purpose of given assignment is to classify skin lessions. Skin lesions are defined as areas of skin that visually differ from the surrounding tissue. They are relatively common and can develop from a variety of causes, including trauma, genetic factors, infection or autoimmune disorders. 
 
 To support our analysis, we determine the number of hairs in each image and preprocess the images by removing hairs to improve the visibility of the lesions. This preprocessing step enhances the accuracy of lesion identification and classification, helping to distinguish lesions associated with potential diseases from those caused by non-cancerous factors.
 
 Additionally, we tested different parameters, such as varying kernel sizes, thresholds, and radii. Image 0410 was uploaded twice to illustrate this process. We do this because we want to check if lowering the threshold successfully removes smaller hairs.
 
- ## Background of the problem 
-
+## Analysis 
 We analysed the result.csv dataset:
 1. Count how many times each person voted for images with rankings 0, 1, or 2.
 2. Check which are the most disagreed on pictures and then perform hair removal on them.
@@ -26,6 +26,11 @@ Observations:
 
 2. Images, on which hair level we disagreeded on
 
+| Image         | Votes for 0 | Votes for 1 | Votes for 2 | Agreeing 0               | Agreeing 1             | Agreeing 2 |
+|---------------|-------------|-------------|-------------|--------------------------|------------------------|------------|
+| img_0395.png  | 3           | 1           | 1           | [Dara, Marta, Filip]      | [Philip]               | [Maja]     |
+| img_0513.png  | 1           | 3           | 1           | [Filip]                   | [Dara, Marta, Philip]  | [Maja]     |
+
 Performing analysis of our results (the analysis can be found in file "analysis_results.ipynb"), we found two examples with significant differences in the opinions. 
 
 In img_0395.png due to using small enough threshold we were able to remove the hiar, which was unnoticeable to some participants of our group (Dara, Marta, Filip)
@@ -41,7 +46,7 @@ In img_0513.png, where the limited amount of hair is present, the function succe
 
 
 
-### Hair Segmentation Examples
+## Hair Segmentation Examples
 Hair Segenation was conducted using the TELEA method, based on the template code from the lecture. Below are examples of visually successful and unsuccessful results:
 
 
