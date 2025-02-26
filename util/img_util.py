@@ -47,11 +47,11 @@ class ImageDataLoader:
         if self.shuffle:
             random.shuffle(self.file_list)
 
-        # get the total number of batches
-        self.num_batches = len(self.file_list)
+        # get the total number of samples
+        self.num_samples = len(self.file_list)
 
     def __len__(self):
-        return self.num_batches
+        return self.num_samples
 
     def __iter__(self):
         # fill in with your own code below
@@ -69,11 +69,7 @@ class ImageDataLoader:
             yield img_rgb, img_gray, file_name  
 
 
-
-def simple_transform(img):
-    return cv2.resize(img, (224, 224))  
-
-image_loader = ImageDataLoader(directory="data", shuffle=True, transform=simple_transform)
+image_loader = ImageDataLoader(directory="data", shuffle=True)
 
 for img_rgb, img_gray, filename in image_loader:
     print(f"Loaded image: {filename}, Shape: {img_rgb.shape}")
