@@ -13,6 +13,7 @@ We analysed the result.csv dataset:
 2. Check which are the most disagreed on pictures and then perform hair removal on them.
 
 Observations:
+
 1. Vote Counts for Each Person (0, 1, 2):
 
 | Person | 0  | 1  | 2  |
@@ -25,7 +26,7 @@ Observations:
 
 2. Images, on which hair level we disagreeded on
 
-Performing analysis of our results (the analysis can be found in file "analysis_results.ipynb" )we found two examples with significant differences in the opinions. 
+Performing analysis of our results (the analysis can be found in file "analysis_results.ipynb"), we found two examples with significant differences in the opinions. 
 
 In img_0395.png due to using small enough threshold we were able to remove the hiar, which was unnoticeable to some participants of our group (Dara, Marta, Filip)
 
