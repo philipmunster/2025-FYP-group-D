@@ -37,8 +37,11 @@ class ImageDataLoader:
         self.shuffle = shuffle
         self.transform = transform
 
-        # get a sorted list of all files in the directory
-        self.file_list = [f for f in os.listdir(directory) if f.endswith(('.jpg', '.png', '.jpeg'))]
+        # get a sorted list of all image files in the directory
+        self.file_list = sorted(
+            [os.path.join(directory, f) for f in os.listdir(directory) if
+             f.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.tiff'))]
+        )
 
         if not self.file_list:
             raise ValueError("No image files found in the directory.")
@@ -54,19 +57,14 @@ class ImageDataLoader:
         return self.num_samples
 
     def __iter__(self):
-        # fill in with your own code below
-        for file_name in self.file_list:
-            file_path = os.path.join(self.directory, file_name)
-
-            # read the image
+        for file_path in self.file_list:
             img_rgb, img_gray = readImageFile(file_path)
 
-            # apply transformation 
             if self.transform:
                 img_rgb = self.transform(img_rgb)
                 img_gray = self.transform(img_gray)
 
-            yield img_rgb, img_gray, file_name  
+            yield img_rgb, img_gray, os.path.basename(file_path)
 
 
 image_loader = ImageDataLoader(directory="data", shuffle=True)
