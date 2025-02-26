@@ -74,5 +74,6 @@ BASE_DIR = os.path.dirname(CURRENT_DIR)
 DATA_DIR = os.path.join(BASE_DIR, "data")
 image_loader = ImageDataLoader(directory=DATA_DIR, shuffle=True)
 
+
 for img_rgb, img_gray, filename in image_loader:
     print(f"Loaded image: {filename}, Shape: {img_rgb.shape}")
