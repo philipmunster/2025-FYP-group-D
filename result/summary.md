@@ -23,7 +23,22 @@ Observations:
 | Philip | 58 | 78 | 64 |
 | Maja   | 70 | 82 | 52 |
 
-2. 
+2. Images, on which hair level we disagreeded on
+
+Performing analysis of our results (the analysis can be found in file "analysis_results.ipynb" )we found two examples with significant differences in the opinions. 
+
+In img_0395.png due to using small enough threshold we were able to remove the hiar, which was unnoticeable to some participants of our group (Dara, Marta, Filip)
+
+![Unprocessed Image_0395](../data/img_0395.png)
+![Processed Image_0395](processed_images/img_0395_processed.png)
+
+In img_0513.png, where the limited amount of hair is present, the function succesfully removed the hair, however it also removed both the natural pigmentation and the pen marks, which was not intended.
+
+![Unprocessed Image_0513](../data/img_0513.png)
+![Processed Image_0513](processed_images/img_0513_processed.png)
+
+
+
 
 ### Hair Segmentation Examples
 Hair Segenation was conducted using the TELEA method, based on the template code from the lecture. Below are examples of visually successful and unsuccessful results:
@@ -42,6 +57,8 @@ However, the results are not as satisfactionary on image "img_0414.jpg", where a
 
 ![Unprocessed Image_0414](../data/img_0414.png)
 ![Processed Image_0414](processed_images/img_0414_processed.png)
+
+
  
 
 
