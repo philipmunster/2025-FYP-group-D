@@ -68,8 +68,13 @@ class ImageDataLoader:
 
             yield img_rgb, img_gray, file_name  
 
-
-image_loader = ImageDataLoader(directory="data", shuffle=True)
+# Get the directory of the script
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+# Move one level up to get the project root
+BASE_DIR = os.path.dirname(CURRENT_DIR)
+# Construct the path to the "data" folder
+DATA_DIR = os.path.join(BASE_DIR, "data")
+image_loader = ImageDataLoader(directory=DATA_DIR, shuffle=True)
 
 for img_rgb, img_gray, filename in image_loader:
     print(f"Loaded image: {filename}, Shape: {img_rgb.shape}")
