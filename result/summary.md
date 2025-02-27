@@ -5,12 +5,12 @@ The main purpose of given assignment is to classify skin lessions. Skin lesions 
 
 To support our analysis, we determine the number of hairs in each image and preprocess the images by removing hairs to improve the visibility of the lesions. This preprocessing step enhances the accuracy of lesion identification and classification, helping to distinguish lesions associated with potential diseases from those caused by non-cancerous factors.
 
-Additionally, we tested different parameters, such as varying kernel sizes, thresholds, and radii. Image 0410 was uploaded twice to illustrate this process. We do this because we want to check if lowering the threshold successfully removes smaller hairs.
+Additionally, we tested different parameters, such as varying kernel sizes, thresholds, and radii. 
 
 ## Analysis 
 We analysed the result.csv dataset:
 1. Count how many times each person voted for images with rankings 0, 1, or 2.
-2. Check which are the most disagreed on pictures and then perform hair removal on them.
+2. Check which are the most disagreed on pictures and then precisely analyse the performed hair removal on them.
 
 Observations:
 
@@ -33,12 +33,12 @@ Observations:
 
 Performing analysis of our results (the analysis can be found in file "analysis_results.ipynb"), we found two examples with significant differences in the opinions. 
 
-In img_0395.png due to using small enough threshold we were able to remove the hiar, which was unnoticeable to some participants of our group (Dara, Marta, Filip)
+In img_0395.png due to using small enough threshold we were able to remove the hair, which was unnoticeable to some participants of our group (Dara, Marta, Filip).
 
 ![Unprocessed Image_0395](../data/img_0395.png)
 ![Processed Image_0395](processed_images/img_0395_processed.png)
 
-In img_0513.png, where the limited amount of hair is present, the function succesfully removed the hair, however it also removed both the natural pigmentation and the pen marks, which was not intended.
+In img_0513.png, where the limited amount of hair is present, the function succesfully removed the hair, however it also removed both the natural pigmentation and the pen marks, which was not intended, this occurs as the black hat image detects detects contrast.
 
 ![Unprocessed Image_0513](../data/img_0513.png)
 ![Processed Image_0513](processed_images/img_0513_processed.png)
@@ -47,7 +47,9 @@ In img_0513.png, where the limited amount of hair is present, the function succe
 
 
 ## Hair Segmentation Examples
-Hair Segenation was conducted using the TELEA method, based on the template code from the lecture. Below are examples of visually successful and unsuccessful results:
+Hair Segenation was conducted using the TELEA method, based on the template code from the lecture. We used the code in [2025-FYP-group-D/main.py] to analyse the examplanatory image in the data folder in the GITHUB repistory and used code in [2025-FYP-group-D/result/projectcode.ipynb] to go through all the images marked as group D images in the [/Users/majcia/Desktop/testing/2025-FYP-group-D/data-student.csv] internally on one of the computers.
+
+Below are examples of visually successful and unsuccessful results:
 
 
 
