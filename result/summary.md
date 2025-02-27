@@ -52,14 +52,18 @@ Hair Segenation was conducted using the TELEA method, based on the template code
 
 
 ### Good results
-In order to analyze the process of hair removal, we choose an image "img_0410.png", as we all marked its hair level as 2, which implies a big amount of hair. We can see that hair on picture "img_0410.png", were removed almost scompletely for kernel= 25, however a limited amount of hair is still left in place of the darker sport. When we increase the kernel to , we can observe a complete succesful hair removal.
+In order to analyze the process of hair removal, we choose an image "img_0410.png", as we all marked its hair level as 2, which implies a big amount of hair. We can see that hair on picture "img_0410.png", were removed almost scompletely for kernel= 25, and threshold= 10, however a limited amount of hair is still left in the place of the darker spot. 
 
 ![Unprocessed Image_0410](../data/img_0410.png)
 ![Processed Image_0410](processed_images/img_0410_processed.png)
 
+After decreasing the threshold to 2, we can observe a complete succesful hair removal even in teh dark areas, it occurs as the black hat image detects contrats, not only hair, and bigger threshold (=10) ignored fine details in the darker spot as the difference between colors was not strong enough, applying threshold = 2 we were able to achieve the detection of more fine details. 
+
+![Processed Image_0410](processed_images/img_0410_processed.png)
+![Processed Image_0410_threshold=2](processed_images/img_0410_processed_lower_thredshold_is_2.png)
 
 ### Bad results
-However, the results are not as satisfactionary on image "img_0414.jpg", where also a significant amount of hair is present [hair level= 2 marked by all of us], as even though the hair was removed, the process left significant white spots in place of the hair. In contradiction to the former example, the hair on the image is white.
+However, the results are not as satisfactionary on image "img_0414.jpg", where also a significant amount of hair is present [hair level= 2 marked by all of us]. In contradiction to the former example, the hair on the image is white, despite the fine color of the hair, the black hat image mask worked great, as there is a still crucial contrast between the skin color and the color of the hair. However, while even the white hair was succesfully removed, the inpainting left significant white spots in place of the hair.
 
 ![Unprocessed Image_0414](../data/img_0414.png)
 ![Processed Image_0414](processed_images/img_0414_processed.png)
